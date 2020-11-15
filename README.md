@@ -10,4 +10,4 @@ This was made utilizing HTML, CSS, Javascript, and JQuery.
 
 ## Screenshot
 
-![Screenshot](images/early.jpg "Screenshot")
+![Screenshot](images/WorkDayScheduler.jpg "Screenshot")
