@@ -1,5 +1,3 @@
-var theTimeRightNow = moment();
-
 function runScheduler() {
     $("#currentDay")
         .text(moment()
@@ -30,21 +28,27 @@ saveBtn.on("click", function () {
 });
 
 function backToTheFuture() {
-    hour = theTimeRightNow.hours();
+    hour = moment().hours();
     $(".time-block")
         .each(function () {
             var hourOfPower = parseInt($(this)
-                .attr("id"), 10);
-            if (hourOfPower != hour) {
+                .attr("id"));
+            if (hour > hourOfPower) {
                 $(this)
-                    .addClass("past")
-            } else if (hourOfPower === hour) {
+                    .addClass("past");
+            } else if (hour === hourOfPower) {
+                $(this)
+                    .removeClass("past");
                 $(this)
                     .addClass("present");
             } else {
                 $(this)
+                    .removeClass("past");
+                $(this)
+                    .removeClass("present");    
+                $(this)
                     .addClass("future");
             }
-        })
+        });
 }
 backToTheFuture();
